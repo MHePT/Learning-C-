@@ -9,5 +9,10 @@ inline void runVector() {
 	vector< vector<int>> v2(3, vector<int>(5)); //2D 3x5 Vector Named v2
 	vector< vector< vector<int> > > v3(3, vector< vector<int> >(5, vector<int>(6))); //3D 3x5x6 Vector Named v3
 
+	//array of pointers to create triangular array
+	int** ptrarr = new int*[5];
+	for (int i = 0; i < 5;i++) {
+		ptrarr[i] = new int[i + 1];
+	}
 
 }

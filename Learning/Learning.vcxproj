@@ -132,6 +132,7 @@
     <ClCompile Include="LargestNumber.cpp" />
     <ClCompile Include="Learning.cpp" />
     <ClCompile Include="Sorting.cpp" />
+    <ClCompile Include="Strings.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="Subnetting.cpp" />
     <ClCompile Include="Vectors.cpp" />

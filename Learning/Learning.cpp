@@ -58,6 +58,7 @@ int main() {
 	fun(x); // expression will make compilation error (e.g. x + 1 )
 	cout << *garbage << endl;
 	delete garbage;//delete[] for array release
+
 }
 
 float square(float x = 1) { // float x is formal parameter. void fun(void) is absolete. =1 is default parameter
