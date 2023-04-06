@@ -59,6 +59,30 @@ int main() {
 	cout << *garbage << endl;
 	delete garbage;//delete[] for array release
 
+	string the_string = "content";
+
+	print_info(the_string);
+
+	for (int i = 0; i < 100; i++)
+
+		the_string += the_string;
+
+	print_info(the_string);
+
+}
+
+void print_info(string& s)
+
+{
+
+	cout << "length = " << s.length() << endl;
+
+	cout << "capacity = " << s.capacity() << endl;
+
+	cout << "max size = " << s.max_size() << endl;
+
+	cout << "---------" << endl;
+
 }
 
 float square(float x = 1) { // float x is formal parameter. void fun(void) is absolete. =1 is default parameter
