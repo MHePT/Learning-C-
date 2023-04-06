@@ -13,10 +13,18 @@ using namespace std;
 float square(float x); // Good Habit
 void fun(int&); // Bad Habit
 
+void by_ptr(int* ptr)
+
+{
+
+	*ptr = *ptr + 1;
+
+}
+
 int main() {
 	char c = 'T';
 	int x = 1, * p = nullptr; // same as = NULL or = 0
-	void* pointer;//*pointer = 0; PROHIBTED
+	void* pointer;//*pointer = 0; PROHIBTED Serious problems
 	int* garbage = new int;
 	x = x << 2;
 
@@ -55,9 +63,15 @@ int main() {
 
 
 	cout << square(2.f) << endl;// 2 is actual parameter or argument
-	fun(x); // expression will make compilation error (e.g. x + 1 )
+	fun(x); // expression will make compilation error (e.g. fun(x + 1) )
 	cout << *garbage << endl;
 	delete garbage;//delete[] for array release
+
+
+	int variable = 1;
+	int* pointerr = &variable;
+	by_ptr(pointerr);
+	cout << "variable = " << variable << endl;
 
 }
 
@@ -67,32 +81,6 @@ float square(float x = 1) { // float x is formal parameter. void fun(void) is ab
 }
 
 void fun(int& x) { // passing by reference it can be done with pointer like C but risky and not recommended
-	/*
-	void by_ptr(int* ptr)
-
-	{
-
-		*ptr = *ptr + 1;
-
-	}
-
-
-
-	int main()
-
-	{
-
-		int variable = 1;
-
-		int *pointer = &variable;
-
-
-
-		by_ptr(pointer);
-
-		cout << "variable = " << variable << endl;
-
-	}*/
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
