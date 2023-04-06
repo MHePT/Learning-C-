@@ -13,21 +13,6 @@ using namespace std;
 float square(float x); // Good Habit
 void fun(int&); // Bad Habit
 
-void print_info(string& s)
-
-{
-
-	cout << "length = " << s.length() << endl;
-
-	cout << "capacity = " << s.capacity() << endl;
-
-	cout << "max size = " << s.max_size() << endl;
-
-	cout << "---------" << endl;
-
-}
-
-
 int main() {
 	char c = 'T';
 	int x = 1, * p = nullptr; // same as = NULL or = 0
@@ -73,16 +58,6 @@ int main() {
 	fun(x); // expression will make compilation error (e.g. x + 1 )
 	cout << *garbage << endl;
 	delete garbage;//delete[] for array release
-
-	string the_string = "content";
-
-	print_info(the_string);
-
-	for (int i = 0; i < 100; i++)
-
-		the_string += the_string;
-
-	print_info(the_string);
 
 }
 
