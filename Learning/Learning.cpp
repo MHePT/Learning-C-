@@ -13,6 +13,21 @@ using namespace std;
 float square(float x); // Good Habit
 void fun(int&); // Bad Habit
 
+void print_info(string& s)
+
+{
+
+	cout << "length = " << s.length() << endl;
+
+	cout << "capacity = " << s.capacity() << endl;
+
+	cout << "max size = " << s.max_size() << endl;
+
+	cout << "---------" << endl;
+
+}
+
+
 int main() {
 	char c = 'T';
 	int x = 1, * p = nullptr; // same as = NULL or = 0
@@ -68,20 +83,6 @@ int main() {
 		the_string += the_string;
 
 	print_info(the_string);
-
-}
-
-void print_info(string& s)
-
-{
-
-	cout << "length = " << s.length() << endl;
-
-	cout << "capacity = " << s.capacity() << endl;
-
-	cout << "max size = " << s.max_size() << endl;
-
-	cout << "---------" << endl;
 
 }
 

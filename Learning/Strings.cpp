@@ -3,6 +3,9 @@
 
 using namespace std;
 
+void print_info(string& s);
+
+
 void runStrings() {
 	string name("String");
 	string name2 = "";
