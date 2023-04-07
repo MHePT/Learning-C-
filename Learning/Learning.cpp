@@ -73,6 +73,9 @@ int main() {
 	by_ptr(pointerr);
 	cout << "variable = " << variable << endl;
 
+	cout << ('A' < 'a') << endl; // 1
+
+
 }
 
 float square(float x = 1) { // float x is formal parameter. void fun(void) is absolete. =1 is default parameter
