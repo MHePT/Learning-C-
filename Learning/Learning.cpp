@@ -5,7 +5,10 @@
 #include "Subnetting.cpp"
 #include "Vectors.cpp"
 //#include "Sorting.cpp"
-//include "Structure.cpp"
+//#include "Structure.cpp"
+//#include "LargestNumber.cpp"
+//#include "Strings.cpp"
+//#include "Namespaces.cpp"
 
 
 using namespace std;
