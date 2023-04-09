@@ -31,6 +31,7 @@ int main() {
 	int* garbage = new int;
 	x = x << 2;
 
+
 	cout << 0b111 << endl << 0x111 << endl << 0111 << endl << 111 << endl;
 	cout << hex << 111 << endl << oct << 111 << endl << dec << 111.0f << endl;
 	cout << "\a" << setbase(10) << 300'000'000l << endl << 3e8 << endl; // \r reprint the line
