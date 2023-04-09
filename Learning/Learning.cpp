@@ -9,6 +9,8 @@
 //#include "LargestNumber.cpp"
 //#include "Strings.cpp"
 //#include "Namespaces.cpp"
+//#include "OOP.cpp"
+//#include "Inheritance1.cpp"
 
 
 using namespace std;
@@ -27,7 +29,7 @@ void by_ptr(int* ptr)
 int main() {
 	char c = 'T';
 	int x = 1, * p = nullptr; // same as = NULL or = 0
-	void* pointer;//*pointer = 0; PROHIBTED Serious problems
+	void* pointer = 0;//*pointer = 0; PROHIBTED Serious problems
 	int* garbage = new int;
 	x = x << 2;
 
@@ -79,6 +81,12 @@ int main() {
 
 	cout << ('A' < 'a') << endl; // 1
 
+
+	delete p;
+	delete pointer;
+	delete pointerr;
+	delete ptr2;
+	delete ptr;
 
 }
 

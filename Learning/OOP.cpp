@@ -1,20 +1,31 @@
 #include <iostream>
 
+using namespace std;
+
 class Stack {
-private://We can ommit it the default is private
+private://We can ommit it. The default is private in C++
 
 	int* Stack_arr;
 	int Top;//Created in Stack
 	int Size;//Created in Stack
 	static int Counter; //Created in Stack
+	/*Constant pointer:
+	int * const ptr; // --ptr is PROHIBTED
+
+	Pointer To constant:
+	const int *ptr; // *ptr = 0; is PROHIBTED
+	int const *ptr;
+
+	Constant pointer To constant:
+	const int * const iptr; // Either --ptr; or *ptr = 0; is PROHIBTED 
+	int const * const iptr;*/
 
 public:
 
-	Stack(int Size = 10) {
-		this->Size = Size;
+	Stack(int Size = 10) : Size(Size) , Top(-1){
+		this->Size = Size;//Same effect
 	//(*this).Size = Size; they are the same
 		Stack_arr = new int[Size];//Created in heap
-		Top = -1;
 		++Counter;
 	}
 
@@ -79,8 +90,11 @@ public:
 };
 
 bool AddingStack::push(int value) {
+	if (isFull())
+		return false;
 	sum += value;
 	Stack::push(value);
+	return true;
 }
 
 int AddingStack::pop() {
@@ -103,6 +117,18 @@ s2->push(2);
 
 delete s2;
 delete s3;
+
+Instances can be copied or cloned as following
+~~IT'S DANGEROUS AS Stack_arr IS SHARED AMONG ALL WITH SAME PIECE OF MEMORY ALLOCATED
+
+Stack s2 = s1;
+or 
+Stack s2(s1);
+
+can be mitigate it by:
+	Stack(Stack const &source) {
+	source.Stack_arr = new int[source.Size];
+	}
 */
 
 
@@ -135,3 +161,84 @@ public:
 
 };
 /*Collection::Collection() : el2(2) , el1(1){  };*/
+
+
+class A {
+
+public:
+
+	A(A& src){
+
+		cout << "copying A..." << endl;
+
+	}
+
+	A() { };
+
+	void do_it(){
+
+		cout << "A is doing something" << endl;
+
+	}
+
+};
+
+
+
+class B {
+
+public:
+
+	B(B& src){
+
+		cout << "copying B..." << endl;
+
+	}
+
+	B() { };
+
+	void do_it(){
+
+		cout << "B is doing something" << endl;
+
+	}
+
+};
+
+
+
+class Compo {
+
+public:
+
+	Compo(Compo& src) : f2(src.f2), f1(src.f1){ // order doesn't matter they are not same type
+
+		cout << "Copying Compo..." << endl;
+
+	}
+
+	Compo() { };
+
+	A f1;//Constructed or Copied First
+	B f2;//Constructed or Copied Second
+
+};
+
+
+/*
+int main(){
+
+	Compo  co1;
+	Compo  co2 = co1;
+
+	co2.f1.do_it();
+	co2.f2.do_it();
+
+} Output is
+	copying A...
+	copying B...
+	Copying Compo...
+	A is doing something
+	B is doing something
+
+*/

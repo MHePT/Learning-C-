@@ -42,7 +42,10 @@
     <ClCompile Include="OOP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Inheritance1.cpp">
+    <ClCompile Include="Inheritance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Friends.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

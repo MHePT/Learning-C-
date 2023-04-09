@@ -129,7 +129,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Inheritance1.cpp" />
+    <ClCompile Include="Inheritance.cpp" />
+    <ClCompile Include="Friends.cpp" />
     <ClCompile Include="LargestNumber.cpp" />
     <ClCompile Include="Learning.cpp" />
     <ClCompile Include="Namespaces.cpp" />
