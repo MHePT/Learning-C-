@@ -4,14 +4,16 @@
 #include <iomanip>
 #include "Subnetting.cpp"
 #include "Vectors.cpp"
-//#include "Sorting.cpp"
-//#include "Structure.cpp"
-//#include "LargestNumber.cpp"
-//#include "Strings.cpp"
-//#include "Namespaces.cpp"
-//#include "OOP.cpp"
-//#include "Inheritance1.cpp"
-
+#include "Sorting.h"
+//#include "Structure.h"
+//#include "LargestNumber.h"
+//#include "Strings.h"
+//#include "Namespaces.h"
+#include "OOP.h"
+#include "Inheritance.h"
+#include "Friends.h"
+#include "Stack.h"
+#include "Exceptions.h"
 
 using namespace std;
 
@@ -82,11 +84,11 @@ int main() {
 	cout << ('A' < 'a') << endl; // 1
 
 
-	delete p;
+	/*delete p;
 	delete pointer;
 	delete pointerr;
 	delete ptr2;
-	delete ptr;
+	delete ptr; */
 
 }
 

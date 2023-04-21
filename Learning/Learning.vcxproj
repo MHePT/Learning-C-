@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Exceptions.cpp" />
     <ClCompile Include="Inheritance.cpp" />
     <ClCompile Include="Friends.cpp" />
     <ClCompile Include="LargestNumber.cpp" />
@@ -136,10 +137,19 @@
     <ClCompile Include="Namespaces.cpp" />
     <ClCompile Include="OOP.cpp" />
     <ClCompile Include="Sorting.cpp" />
+    <ClCompile Include="Sorting.h" />
+    <ClCompile Include="Stack.cpp" />
     <ClCompile Include="Strings.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="Subnetting.cpp" />
     <ClCompile Include="Vectors.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Exceptions.h" />
+    <ClInclude Include="Friends.h" />
+    <ClInclude Include="Inheritance.h" />
+    <ClInclude Include="OOP.h" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

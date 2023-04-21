@@ -1,19 +1,12 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
+#include "Sorting.h"
 
 
-inline void Bubble_Sort(vector<int>& numbers) {
-
+void Bubble_Sort(vector<int>& numbers) {
 	bool swapped;
-
 
 	do { // we will decide if we need to continue this loop 
 
 		swapped = false; // no swap occured yet
-
-
 
 		for (int i = 0; i < 4; i++)
 		{

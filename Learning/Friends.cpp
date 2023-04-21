@@ -1,30 +1,24 @@
-#include <iostream>
-
-using namespace std;
-
-class Class {
-	friend class Friend;
-	int field;
-	void print(){
-		cout << "It's a secret, that field = " << field << endl;
-	}
-};
-
-class Friend {
-public:
-	void do_it(Class& c){
-		c.field = 100;
-		c.print();
-	}
-};
-/*
-int main(){
-	Class o;
-	Friend f;
+#include "Friends.h"
+
+void Class1::print() {
+	cout << "It's a secret, that field = " << field << endl;
+}
+
+
+void Friend::do_it(Class1& c){
+	c.field = 100;
+	c.print();
+}
+
+
+void run1(){
+	Class1 o;
+	Friend f;
+
 	f.do_it(o);
 
-}Output is
-	It's a secret, that field = 100
+}/*Output is
+*	It's a secret, that field = 100
 */
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,34 +31,30 @@ int main(){
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-
-class A {
-	friend class B;
-	friend void do_it(A&);
-private:
-	int field;
-protected:
-	void print(){
+void A::print(){
 		cout << "It's a secret, that field = " << field << endl;
-	}
-};
-class B {
-public:
-	void do_it(A& a){
-		a.print();
-	}
-};
-
+}
+
+
+void B::do_it(A& a){
+	a.print();
+}
+
+
 void do_it(A& a){
 	a.field = 99;
-}
-/*
-int main(){
-	A a; B b;
+}
+
+
+void run2(){
+
+	A a; B b;
+
 	do_it(a);
-	b.do_it(a);
-} Output is
-	It's a secret, that field = 99
+	b.do_it(a);
+
+}/* Output is
+*	It's a secret, that field = 99
 */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	~~~~~FRIENDSHIP RULES~~~~~

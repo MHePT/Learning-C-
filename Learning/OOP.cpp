@@ -1,104 +1,66 @@
-#include <iostream>
+#include "OOP.h"
 
-using namespace std;
-
-class Stack {
-private://We can ommit it. The default is private in C++
-
-	int* Stack_arr;
-	int Top;//Created in Stack
-	int Size;//Created in Stack
-	static int Counter; //Created in Stack
-	/*Constant pointer:
-	int * const ptr; // --ptr is PROHIBTED
-
-	Pointer To constant:
-	const int *ptr; // *ptr = 0; is PROHIBTED
-	int const *ptr;
-
-	Constant pointer To constant:
-	const int * const iptr; // Either --ptr; or *ptr = 0; is PROHIBTED 
-	int const * const iptr;*/
-
-public:
-
-	Stack(int Size = 10) : Size(Size) , Top(-1){
-		this->Size = Size;//Same effect
+Stack_OOP::Stack_OOP(int Size) : Size(Size) , Top(-1){
+	this->Size = Size;//Same effect
 	//(*this).Size = Size; they are the same
-		Stack_arr = new int[Size];//Created in heap
-		++Counter;
-	}
+	Stack_arr = new int[Size];//Created in heap
+	++Counter;
+}
 
-	Stack(Stack const &source) {//When want to copy a version of current object
-		// when ommited it will be cloned without change in variables
-		// const to not modify the source object
-		++Counter;
-	}
+Stack_OOP::Stack_OOP(Stack_OOP const &source) {//When want to copy a version of current object
+	// when ommited it will be cloned without change in variables
+	// const to not modify the source object
+	++Counter;
+}
 
-	~Stack() {// Distructor
+Stack_OOP::~Stack_OOP() {// Distructor
 		delete[] Stack_arr;
 		delete Stack_arr;
-	}
+}
 
-	bool isEmpty();
+bool Stack_OOP::push(int value) {
 
-	bool isFull();
+	if (isFull())
+		return false;
 
-	bool push(int value) {
+	Stack_arr[++Top] = value;	
+	return true;
+}
 
-		if (isFull())
-			return false;
+int  Stack_OOP::pop() {
 
-		Stack_arr[++Top] = value;	
-		return true;
-	}
+	if (isEmpty())
+		return -1;
 
-	int pop() {
+	return Stack_arr[Top--];
+}
 
-		if (isEmpty())
-			return -1;
 
-		return Stack_arr[Top--];
-	}
-};
+int Stack_OOP::Counter = 0;
 
-int Stack::Counter = 0;
-
-bool Stack::isEmpty() {
+bool Stack_OOP::isEmpty() {
 	return Top == -1;
 }
 
-bool Stack::isFull() {
+bool Stack_OOP::isFull() {
 	return Top == Size;
 }
 
-class AddingStack : Stack { // like extends in Java
-private://We can ommit it the default is private
+AddingStack::AddingStack() : Stack_OOP(){
+	sum = 0;
+}
 
-	int sum;
-
-public:
-
-	AddingStack() : Stack(){
-		sum = 0;
-	}
-
-	bool push(int value);
-	int pop();
-	int Get_Sum();
-
-};
 
 bool AddingStack::push(int value) {
 	if (isFull())
 		return false;
 	sum += value;
-	Stack::push(value);
+	Stack_OOP::push(value);
 	return true;
 }
 
 int AddingStack::pop() {
-	int value = Stack::pop();
+	int value = Stack_OOP::pop();
 	sum -= value;
 	return value;
 }
@@ -131,102 +93,47 @@ can be mitigate it by:
 	}
 */
 
-
-class Element {
-
-	int value;
-
-public:
-
-	Element(int value){
-		this->value = value;
-		std::cout << "Element(" << value << ") constructed!" << std::endl;
-	}
-
-};
+Element::Element(int value){
+	this->value = value;
+	std::cout << "Element(" << value << ") constructed!" << std::endl;
+}
 
 
-
-class Collection {
-
-	Element el1, el2;
-
-public:
-
-	Collection() : el2(2), el1(1){// To invoke other constructor than the default
-		std::cout << "Collection constructed!" << std::endl;
-	}
-	//or
+Collection::Collection() : el2(2), el1(1){// To invoke other constructor than the default
+	std::cout << "Collection constructed!" << std::endl;
+}	//or
 	//Collection();
 
-};
-/*Collection::Collection() : el2(2) , el1(1){  };*/
+
+A::A(A& src){
+	cout << "copying A..." << endl;
+}
+
+A::A() { };
+
+void A::do_it(){
+	cout << "A is doing something" << endl;
+}
 
 
-class A {
+B::B(B& src){
+	cout << "copying B..." << endl;
+}
 
-public:
+B::B() { };
 
-	A(A& src){
+void B::do_it(){
+	cout << "B is doing something" << endl;
+}
 
-		cout << "copying A..." << endl;
 
+Compo::Compo(Compo& src) : f2(src.f2), f1(src.f1){ // order doesn't matter they are not same type
+	cout << "Copying Compo..." << endl;
 	}
 
-	A() { };
+Compo::Compo() { };
 
-	void do_it(){
-
-		cout << "A is doing something" << endl;
-
-	}
-
-};
-
-
-
-class B {
-
-public:
-
-	B(B& src){
-
-		cout << "copying B..." << endl;
-
-	}
-
-	B() { };
-
-	void do_it(){
-
-		cout << "B is doing something" << endl;
-
-	}
-
-};
-
-
-
-class Compo {
-
-public:
-
-	Compo(Compo& src) : f2(src.f2), f1(src.f1){ // order doesn't matter they are not same type
-
-		cout << "Copying Compo..." << endl;
-
-	}
-
-	Compo() { };
-
-	A f1;//Constructed or Copied First
-	B f2;//Constructed or Copied Second
-
-};
-
-
-/*
-int main(){
+void run_OOP1(){
 
 	Compo  co1;
 	Compo  co2 = co1;
@@ -234,11 +141,11 @@ int main(){
 	co2.f1.do_it();
 	co2.f2.do_it();
 
-} Output is
-	copying A...
-	copying B...
-	Copying Compo...
-	A is doing something
-	B is doing something
-
+}/* Output is
+*	copying A...
+*	copying B...
+*	Copying Compo...
+*	A is doing something
+*	B is doing something
+*
 */
