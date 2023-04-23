@@ -5,7 +5,7 @@ Fraction::Fraction(int  Numerator, int Denominator) : Numerator(Numerator), Deno
         throw std::domain_error("bad fraction");
 };
 
-string Fraction::to_string(){
+string Fraction::to_string(){//Sends the outpu to internal buffer can be accessed through str() Method 
     ostringstream os;
     os << "[" << Numerator << "/" << Denominator << "]";
     return os.str();
@@ -15,7 +15,7 @@ double Fraction::get_double(){
     return double(Numerator) / double(Denominator);
 }
 
-Fraction Fraction::operator!(){
+Fraction Fraction::operator!(){//Reducing the fraction
     int gcd = Greater_Common_Divisor(Numerator, Denominator);
     return Fraction(Numerator / gcd, Denominator / gcd);
 }
@@ -32,6 +32,19 @@ Fraction Fraction::operator+(Fraction arg){
     return f;
 }
 
+Fraction& Fraction::operator+=(Fraction arg) {
+
+    int common_denom = Lower_Common_Multiplier(Denominator, arg.Denominator);
+
+    int numera = Numerator * common_denom / Denominator +
+        arg.Numerator * common_denom / arg.Denominator;
+
+    Numerator = numera;
+    Denominator = common_denom;
+
+    return *this;
+}
+
 Fraction Fraction::operator*(Fraction arg){
 
     int numera = Numerator * arg.Numerator;
@@ -45,7 +58,7 @@ Fraction Fraction::operator*(Fraction arg){
 Fraction Fraction::operator/(Fraction arg){
 
     if (arg.Numerator == 0)
-        throw std::domain_error("division by zero");
+        throw domain_error("division by zero");
 
     int numera = Numerator * arg.Denominator;
 
@@ -56,20 +69,7 @@ Fraction Fraction::operator/(Fraction arg){
     return !f;
 }
 
-Fraction& Fraction::operator+=(Fraction arg){
-
-    int common_denom = Lower_Common_Multiplier(Denominator, arg.Denominator);
-
-    int numera = Numerator * common_denom / Denominator +
-        arg.Numerator * common_denom / arg.Denominator;
-
-    Numerator = numera;
-    Denominator = common_denom;
-
-    return *this;
-}
-
-ostream& operator<< (std::ostream& ostr, Fraction& f){
+ostream& operator<< (ostream& ostr, Fraction& f){
     return ostr << f.to_string();
 }
 
@@ -92,10 +92,6 @@ int Fraction::Greater_Common_Divisor(int x, int y){
         if (!y)
             return x;
     }
-}
-
-ostream& operator<<(ostream& ostr, Fraction& f){
-	// TODO: insert return statement here
 }
 
 void run_final() {

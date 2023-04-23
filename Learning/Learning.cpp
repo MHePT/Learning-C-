@@ -19,18 +19,72 @@ using namespace std;
 
 float square(float x); // Good Habit
 void fun(int&); // Bad Habit
+void by_ptr(int* ptr);
+void Datatype_Sizes();
+void Number_and_ASCII();
+void Play_With_Pointers();
+void Play_With_Vectors();
+void Garbage();
+void Run_Learning();
 
-void by_ptr(int* ptr){
+
+int main() {
+	Run_Learning();
+}
+
+void Run_Learning() {
+
+	int x = 1;
+
+	Number_and_ASCII();
+	cout << endl << endl;
+
+	Play_With_Pointers();
+	cout << endl << endl;
+
+	Datatype_Sizes();
+	cout << endl << endl;
+
+	Play_With_Vectors();
+	cout << endl << endl;
+
+	Garbage();
+
+	fun(x); // expressions will make compilation error (e.g. fun(x + 1) ) PASSED BY REFERENCE
+
+}
+
+float square(float x = 1) { // float x is formal parameter. void fun(void) is absolete. =1 is default parameter
+	//x != 1. Fun but True.
+	return x * x;
+}
+
+void fun(int& x) { // passing by reference it can be done with pointer like C but risky and not recommended
+}
+
+void by_ptr(int* ptr) {
 	*ptr = *ptr + 1;
 }
 
-int main() {
-	char c = 'T';
-	int x = 1, * p = nullptr; // same as = NULL or = 0
-	void* pointer = 0;//*pointer = 0; PROHIBTED Serious problems
-	int* garbage = new int;
-	x = x << 2;
+void Datatype_Sizes() {
 
+	int x = 1, * p = nullptr; // same as = NULL or = 0
+
+	cout << "Size of Char in bytes " << sizeof(char) << endl;
+	cout << "Size of Pointer in bits " << sizeof(p) * 8 << endl;
+	cout << "Size of Int in bits " << sizeof x * 8 << endl;
+	cout << "Size of Double in bytes " << sizeof 3.14444444 << endl;
+
+	delete p;
+
+}
+
+void Number_and_ASCII() {
+
+	char c = 'T';
+	int x = 1;
+
+	x = x << 2;
 
 	cout << 0b111 << endl << 0x111 << endl << 0111 << endl << 111 << endl;
 	cout << hex << 111 << endl << oct << 111 << endl << dec << 111.0f << endl;
@@ -41,20 +95,32 @@ int main() {
 	if (true and not false xor true or not false or 1 > 0 ? 1 : 0)
 		Network4("192.168.1.1", "/24"); // &AND |OR ^XOR ~NOT
 	cout << endl << x << endl;
-	cout << endl << endl;
+	cout << square(2.f) << endl;// 2 is actual parameter or argument
+	cout << ('A' < 'a') << endl; // 1
+
+}
+
+void Play_With_Pointers() {
+
+	int x = 1;
+	int* p=NULL;//Same as = 0
+	int variable = 1;
+	int* pointerr = &variable;
+	void* pointer = 0;//*pointer = 0; PROHIBTED Serious problems
 
 	p = &x; // p points to x
 	cout << *p << endl; // value of x (Derefrencing)
 	*p = 30; // now x == 30
 	cout << x << endl;
-	cout << endl << endl;
+	by_ptr(pointerr);// Adding 1 to variable by using the pointer
+	cout << "variable = " << variable << endl;
 
-	cout << "Size of Char in bytes " << sizeof(char) << endl;
-	cout << "Size of Pointer in bits " << sizeof(p) * 8 << endl;
-	cout << "Size of Int in bits " << sizeof x * 8 << endl;
-	cout << "Size of Double in bytes " << sizeof 3.14444444 << endl;
-	cout << endl << endl;
+	//delete p;
+	//delete pointerr;
+	delete pointer;
+}
 
+void Play_With_Vectors() {
 
 	vector<int> vect{ 1, 2, 3 };
 	int* ptr = vect.data();
@@ -63,37 +129,20 @@ int main() {
 	ptr = vect.data() + 1;
 	ptr[-1] = *ptr + ptr[1];
 	cout << vect[0] << endl; // It's 5
-	cout << endl << endl;
 
+	//delete ptr;
+	//delete ptr2;
 
-	cout << square(2.f) << endl;// 2 is actual parameter or argument
-	fun(x); // expression will make compilation error (e.g. fun(x + 1) )
+}
+
+void Garbage() {
+
+	int* garbage = new int;
+
 	cout << *garbage << endl;
+
 	delete garbage;//delete[] for array release
 
-
-	int variable = 1;
-	int* pointerr = &variable;
-	by_ptr(pointerr);
-	cout << "variable = " << variable << endl;
-
-	cout << ('A' < 'a') << endl; // 1
-
-
-	/*delete p;
-	delete pointer;
-	delete pointerr;
-	delete ptr2;
-	delete ptr; */
-
-}
-
-float square(float x = 1) { // float x is formal parameter. void fun(void) is absolete. =1 is default parameter
-	//x != 1. Fun but True.
-	return x * x;
-}
-
-void fun(int& x) { // passing by reference it can be done with pointer like C but risky and not recommended
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
