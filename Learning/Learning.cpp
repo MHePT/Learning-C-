@@ -2,12 +2,12 @@
 
 #include <iostream>
 #include <iomanip>
-#include "Subnetting.cpp"
-#include "Vectors.cpp"
+#include "Subnetting.h"
+#include "Vectors.h"
 #include "Sorting.h"
-//#include "Structure.h"
-//#include "LargestNumber.h"
-//#include "Strings.h"
+#include "Structure.h"
+#include "LargestNumber.h"
+#include "Strings.h"
 //#include "Namespaces.h"
 #include "OOP.h"
 #include "Inheritance.h"
@@ -20,12 +20,8 @@ using namespace std;
 float square(float x); // Good Habit
 void fun(int&); // Bad Habit
 
-void by_ptr(int* ptr)
-
-{
-
+void by_ptr(int* ptr){
 	*ptr = *ptr + 1;
-
 }
 
 int main() {

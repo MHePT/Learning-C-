@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Calendar.cpp" />
     <ClCompile Include="Exceptions.cpp" />
     <ClCompile Include="Inheritance.cpp" />
     <ClCompile Include="Friends.cpp" />
@@ -136,6 +137,8 @@
     <ClCompile Include="Learning.cpp" />
     <ClCompile Include="Namespaces.cpp" />
     <ClCompile Include="OOP.cpp" />
+    <ClCompile Include="Overloaded_Operators.cpp" />
+    <ClCompile Include="Final.cpp" />
     <ClCompile Include="Sorting.cpp" />
     <ClCompile Include="Sorting.h" />
     <ClCompile Include="Stack.cpp" />
@@ -145,11 +148,20 @@
     <ClCompile Include="Vectors.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Calendar.h" />
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="Friends.h" />
     <ClInclude Include="Inheritance.h" />
+    <ClInclude Include="LargestNumber.h" />
+    <ClInclude Include="Namespaces.h" />
     <ClInclude Include="OOP.h" />
+    <ClInclude Include="Overloaded_Operators.h" />
+    <ClInclude Include="Final.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="Strings.h" />
+    <ClInclude Include="Structure.h" />
+    <ClInclude Include="Subnetting.h" />
+    <ClInclude Include="Vectors.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -42,3 +42,25 @@ bool Stack::push(int value) {
     stack[++Top]= value;
     return true;
 }
+
+Stack& Stack::operator<< (int value) {
+    push(value);
+    return *this;
+}
+
+Stack& Stack::operator>> (int& value) {
+    value = pop();
+   return *this;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~ Another Way to Define Operators
+* 
+* Stack& operator<< (Stack &s, int value){ s << value SAME ORDER
+* s.push(value);
+* return s;}
+* 
+* Stack& operator>>(Stack& s, int &value){ s >> value SAME ORDER
+* value = s.pop();
+* return s;}
+* 
+*/

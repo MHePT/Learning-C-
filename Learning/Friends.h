@@ -19,21 +19,21 @@ public:
 
 void run1();
 
-class A {
-	friend class B;
-	friend void do_it(A&);
+class A_F {
+	friend class B_F;
+	friend void do_it(A_F&);
 private:
 	int field;
 protected:
 	void print();
 };
 
-class B {
+class B_F {
 public:
-	void do_it(A& a);
+	void do_it(A_F& a);
 };
 
-void do_it(A& a);
+void do_it(A_F& a);
 void run2();
 
 

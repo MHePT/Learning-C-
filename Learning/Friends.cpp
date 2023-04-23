@@ -31,24 +31,24 @@ void run1(){
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-void A::print(){
+void A_F::print(){
 		cout << "It's a secret, that field = " << field << endl;
 }
 
 
-void B::do_it(A& a){
+void B_F::do_it(A_F& a){
 	a.print();
 }
 
 
-void do_it(A& a){
+void do_it(A_F& a){
 	a.field = 99;
 }
 
 
 void run2(){
 
-	A a; B b;
+	A_F a; B_F b;
 
 	do_it(a);
 	b.do_it(a);

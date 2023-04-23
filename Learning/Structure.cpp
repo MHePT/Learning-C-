@@ -1,5 +1,4 @@
-#include <string>
-using namespace std;
+#include "Structure.h"
 
 struct Date {
 	int year, month, day;

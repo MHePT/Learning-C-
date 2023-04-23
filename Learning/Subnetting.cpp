@@ -1,13 +1,6 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include "Subnetting.h"
 
-using namespace std;
-
-void inline SubnetMask_Intialize(vector<int>&, string); // Bad Habit (No parameter id)
-void Network4(string Network, string Mask); // Good Habit
-
-inline void Network4(string Network, string Mask) {
+void Network4(string Network, string Mask) {
 
 	vector<int> net{ 0,0,0,0 };
 	vector<int> mask{ 0,0,0,0 };

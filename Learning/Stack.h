@@ -19,7 +19,9 @@ public:
     Stack(int Size = 100);
     ~Stack();
     bool push(int value);
+    Stack& operator<< (int value);
     int pop();
+    Stack& operator>> (int& value);
     bool isEmpty();
     bool isFull();
 

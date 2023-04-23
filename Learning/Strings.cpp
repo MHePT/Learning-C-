@@ -1,10 +1,4 @@
-#include <string>
-#include <iostream>
-
-using namespace std;
-
-void print_info(string& s);
-
+#include "Strings.h"
 
 void runStrings() {
 	string name("String");
